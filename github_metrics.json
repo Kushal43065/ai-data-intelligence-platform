@@ -1,0 +1,114 @@
+[
+  {
+    "arxiv_id": "2611.26441",
+    "paper_title": "Should Belgians Install an Advanced Energy Management System in Their Electrified Dwelling ?",
+    "github_url": "https://github.com/EVERGi/should_belgians_install_advanced_ems_paper",
+    "repository_name": "EVERGi/should_belgians_install_advanced_ems_paper",
+    "stars": 2,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26440",
+    "paper_title": "Learning to Defer under Expert Drift",
+    "github_url": "https://github.com/ZiyaoMou/L2D-Expert-Drift",
+    "repository_name": "ZiyaoMou/L2D-Expert-Drift",
+    "stars": 1,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26363",
+    "paper_title": "HiSA: Sparsifying the Hidden Dimension of RoPE Attention in LLMs",
+    "github_url": "https://github.com/ambroise-b/hisa",
+    "repository_name": "ambroise-b/hisa",
+    "stars": 0,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26296",
+    "paper_title": "SKILL.PNG: Learning Agent Skills in Pixel Space",
+    "github_url": "https://github.com/omseeth/skill.png",
+    "repository_name": "omseeth/skill.png",
+    "stars": 1,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26293",
+    "paper_title": "LocoMuJoCo: A Comprehensive Imitation Learning Benchmark for Whole-Body Control",
+    "github_url": "https://github.com/robfiras/loco-mujoco",
+    "repository_name": "robfiras/loco-mujoco",
+    "stars": 1489,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26242",
+    "paper_title": "FastRoverVLA: Fast Vision-Language-Action Execution for Off-Road Autonomous Driving",
+    "github_url": "https://github.com/ADEPT-ORG/FastRoverVLA",
+    "repository_name": "ADEPT-ORG/FastRoverVLA",
+    "stars": 1,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26157",
+    "paper_title": "NariQ: Sub-3-Bit Quantization for Long-Horizon Agentic Tasks",
+    "github_url": "https://github.com/nari-labs/nari-llama.cpp",
+    "repository_name": "nari-labs/nari-llama.cpp",
+    "stars": 0,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26060",
+    "paper_title": "Iterative Scarcity-Guided Exploration: Bootstrapping Generative Auto-bidding from Narrow Support",
+    "github_url": "https://github.com/alimama-tech/ISGE",
+    "repository_name": "alimama-tech/ISGE",
+    "stars": 2,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26029",
+    "paper_title": "Serialization Tax in Shared-Latent Exchangeable Decisions",
+    "github_url": "https://github.com/SiminChang/Serialization-Tax-in-Shared-Latent-Exchangeable-Decisions",
+    "repository_name": "SiminChang/Serialization-Tax-in-Shared-Latent-Exchangeable-Decisions",
+    "stars": 5,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.26024",
+    "paper_title": "ForeSeek: Foresight-Driven Reasoning for Long-Form Video Understanding",
+    "github_url": "https://github.com/harry0021/ForeSeek",
+    "repository_name": "harry0021/ForeSeek",
+    "stars": 1,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.25981",
+    "paper_title": "Safe Subgame Resolving in Multiplayer Games",
+    "github_url": "https://github.com/lbn187/MultiPlayerSolver",
+    "repository_name": "lbn187/MultiPlayerSolver",
+    "stars": 1,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.25935",
+    "paper_title": "TwinD: Generalizing Deepfake Detection from Blending to Entire Face Synthesis",
+    "github_url": "https://github.com/yermandy/TwinD",
+    "repository_name": "yermandy/TwinD",
+    "stars": 2,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.25927",
+    "paper_title": "Fast-JEPA: Advancing the Success-Latency Frontier for Latent World Models",
+    "github_url": "https://github.com/DeepCybo-PhysAI/Fast-JEPA",
+    "repository_name": "DeepCybo-PhysAI/Fast-JEPA",
+    "stars": 14,
+    "verification": "Repository exists; paper association needs review"
+  },
+  {
+    "arxiv_id": "2611.25874",
+    "paper_title": "Parameter-Efficient Adaptation of Self-supervised Vision Backbones Survives Distribution Shift in Radar Micro-Doppler HAR",
+    "github_url": "https://github.com/KeryanChelouche/udoppler-ssl",
+    "repository_name": "KeryanChelouche/udoppler-ssl",
+    "stars": 0,
+    "verification": "Repository exists; paper association needs review"
+  }
+]
