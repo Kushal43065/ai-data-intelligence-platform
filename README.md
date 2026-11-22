@@ -1,48 +1,114 @@
-# AI Data Intelligence Platform – FrontierAtlas Internship Assignment
+# AI Data Intelligence Platform
 
-A Python-based AI and Data Engineering project demonstrating large-scale data collection, research paper metadata extraction, web crawling, data cleaning, entity resolution, and LLM-based processing.
+### FrontierAtlas – AI/Data Engineering Internship Assignment
+
+A Python-based AI and Data Engineering platform for collecting, processing, cleaning, and organizing intelligence about AI startups, AI products, research papers, job opportunities, and AI news.
+
+**GitHub Repository:** https://github.com/Kushal43065/ai-data-intelligence-platform
+
+---
 
 ## 1. Project Overview
 
-This project extends a research paper metadata extraction system into an AI Data Intelligence Platform.
+The AI Data Intelligence Platform demonstrates an end-to-end data collection and processing workflow using Python, public APIs, RSS feeds, asynchronous web crawling, and Large Language Models (LLMs).
 
-It collects and processes information from multiple sources, including AI startups, AI products, research papers, AI job listings, and AI news websites.
+The platform combines multiple data sources into structured datasets and provides mechanisms for data cleaning, deduplication, entity resolution, metadata extraction, and automated information processing.
 
-The system demonstrates automated extraction, structured data storage, deduplication, asynchronous crawling, and AI-powered information processing.
+The project also includes an architecture proposal for scaling the system to process more than 500,000 records.
 
 ## 2. Key Features
 
-- **Startup Collection:** Collects and cleans AI startup records.
-- **Product Collection:** Combines and deduplicates AI product datasets.
-- **Research Paper Extraction:** Retrieves research papers using the arXiv API and extracts metadata.
-- **PDF Processing:** Uses PyMuPDF to extract text from research paper PDFs.
-- **GitHub Metrics:** Checks repository availability for identified GitHub links.
-- **Job Monitoring:** Collects AI-related job listings from public job feeds and filters recent postings.
-- **AI News Monitoring:** Collects recent AI news from RSS feeds.
-- **Entity Resolution:** Normalizes startup names and generates an entity mapping log.
-- **LLM Fallback:** Demonstrates Gemini, Groq, and DeepSeek provider integration with retry and chunking logic.
-- **Asynchronous Crawling:** Uses asyncio and aiohttp for concurrent webpage fetching.
+### Startup Data Collection
+- Collects AI startup information from a public startup dataset.
+- Cleans and standardizes startup records.
+- Removes duplicate company names.
+- Generates a structured CSV dataset.
+
+### AI Product Collection
+- Combines AI tools and developer tools datasets.
+- Removes duplicate product records.
+- Organizes product information into structured CSV files.
+
+### Research Paper Metadata Extraction
+- Collects research papers using the arXiv API.
+- Retrieves titles, abstracts, authors, and publication dates.
+- Extracts GitHub repository references.
+- Collects GitHub repository metrics where available.
+- Generates JSON and CSV outputs.
+
+### AI Job Monitoring
+- Collects job listings from five public job feeds:
+  - Remote OK
+  - Jobicy
+  - Arbeitnow
+  - Working Nomads
+  - We Work Remotely
+- Filters AI-related job titles.
+- Processes publication dates.
+- Removes duplicate job listings.
+- Filters recent postings.
+
+### AI News Monitoring
+- Collects AI news from five RSS/Atom sources:
+  - TechCrunch AI
+  - The Verge AI
+  - VentureBeat AI
+  - MIT Technology Review
+  - Google DeepMind
+- Extracts article information.
+- Processes publication timestamps.
+- Retrieves article text where publicly accessible.
+
+### Entity Resolution
+- Normalizes startup names.
+- Generates canonical startup names.
+- Uses deterministic matching rules.
+- Records matching methods and confidence values.
+- Creates an entity mapping log.
+
+### LLM Fallback Processing
+- Integrates Google Gemini, Groq, and DeepSeek.
+- Demonstrates provider fallback logic.
+- Includes retry handling for rate limits.
+- Includes text chunking for oversized inputs.
+
+### Asynchronous Web Crawler
+- Uses Python asyncio and aiohttp.
+- Fetches multiple webpages concurrently.
+- Extracts page titles and metadata.
+- Saves crawl results in CSV format.
+
+---
 
 ## 3. Technologies Used
 
-- Python 3.11+
-- Pandas
-- Requests
-- BeautifulSoup
-- PyMuPDF
-- aiohttp
-- Feedparser
-- Google Gemini API
-- Groq API
-- DeepSeek API
-- GitHub REST API
-- arXiv API
-- Google Sheets
+| Technology | Purpose |
+|---|---|
+| Python | Main programming language |
+| Pandas | Data processing and cleaning |
+| Requests | API requests |
+| BeautifulSoup | HTML parsing |
+| PyMuPDF | PDF text extraction |
+| aiohttp | Asynchronous HTTP requests |
+| Feedparser | RSS and Atom feed processing |
+| Google Gemini | LLM processing |
+| Groq | LLM provider integration |
+| DeepSeek | LLM provider integration |
+| GitHub REST API | Repository verification and metrics |
+| arXiv API | Research paper collection |
+| Google Sheets | Dataset organization |
+
+---
 
 ## 4. Project Structure
 
 ```text
-research-paper-metadata-extractor/
+ai-data-intelligence-platform/
+│
+├── .github/
+│   └── workflows/
+│       ├── extraction-check.yml
+│       └── python-tests.yml
 │
 ├── src/
 │   ├── collect_startups.py
@@ -56,40 +122,74 @@ research-paper-metadata-extractor/
 │   ├── llm_fallback.py
 │   └── async_crawler.py
 │
+├── tests/
+│   └── test_extractor.py
+│
 ├── data/
+│
 ├── architecture.pdf
 ├── crawler_strategy.md
 ├── requirements.txt
-├── .gitignore
 ├── README.md
-└── extract_paper_meta.py
+├── .gitignore
+│
+├── extract_paper_meta.py
+├── github_metrics.py
+│
+├── startups_final.csv
+├── products_final.csv
+├── research_papers_final.csv
+├── jobs_final.csv
+├── news_final.csv
+├── entity_mapping_log.csv
+│
+└── Additional JSON and source datasets
 ```
 
-## 5. Installation
+---
 
-Clone the repository:
+## 5. Installation and Setup
+
+### Prerequisites
+
+- Python 3.11 or later
+- Git
+- Internet connection
+- API keys for the LLM services you intend to use
+
+### Step 1: Clone the Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd research-paper-metadata-extractor
+git clone https://github.com/Kushal43065/ai-data-intelligence-platform.git
+
+cd ai-data-intelligence-platform
 ```
 
-Create a virtual environment:
+### Step 2: Create a Virtual Environment
 
 ```bash
 python -m venv .venv
 ```
 
-Activate on Windows PowerShell:
+### Step 3: Activate the Environment
+
+For Windows PowerShell:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-Install dependencies:
+For macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+### Step 4: Install Dependencies
 
 ```bash
 python -m pip install --upgrade pip
+
 pip install -r requirements.txt
 ```
 
@@ -99,9 +199,13 @@ If additional packages are required:
 pip install pandas requests feedparser beautifulsoup4 lxml aiohttp google-genai groq openai python-dotenv pymupdf
 ```
 
+---
+
 ## 6. API Configuration
 
-Create a `.env` file in the project root:
+Create a `.env` file in the root directory.
+
+Add the API keys you have access to:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key
@@ -109,49 +213,146 @@ GROQ_API_KEY=your_groq_api_key
 DEEPSEEK_API_KEY=your_deepseek_api_key
 ```
 
-Never commit or publish API keys. The `.gitignore` file excludes `.env` and virtual environment folders.
+**Security Note:** Never upload `.env` files, API keys, passwords, or other credentials to GitHub.
+
+The `.gitignore` file excludes environment files and virtual environment folders.
+
+---
 
 ## 7. Running the Project
 
-Run the original five-paper metadata extractor:
+Run commands from the repository root directory.
+
+### Startup Collection
+
+```bash
+python src/collect_startups.py
+python src/clean_startups.py
+```
+
+Output:
+
+```text
+startups_final.csv
+```
+
+### Product Processing
+
+```bash
+python src/clean_products.py
+```
+
+Output:
+
+```text
+products_final.csv
+```
+
+### Research Paper Collection
+
+```bash
+python src/bulk_arxiv.py
+python src/merge_research.py
+```
+
+Output:
+
+```text
+research_papers_final.csv
+research_papers_final.json
+```
+
+### Job Collection
+
+```bash
+python src/collect_jobs.py
+```
+
+Output:
+
+```text
+jobs_final.csv
+jobs_final.json
+```
+
+### News Collection
+
+```bash
+python src/collect_news.py
+```
+
+Output:
+
+```text
+news_final.csv
+news_final.json
+```
+
+### Entity Resolution
+
+```bash
+python src/entity_resolution.py
+```
+
+Output:
+
+```text
+seed_startups.csv
+entity_mapping_log.csv
+```
+
+### LLM Processing
+
+```bash
+python src/llm_fallback.py
+```
+
+The script provides options to test individual providers or the automatic fallback sequence.
+
+### Asynchronous Crawling
+
+```bash
+python src/async_crawler.py
+```
+
+Output:
+
+```text
+async_crawler_results.csv
+```
+
+### Original Research Paper Extractor
 
 ```bash
 python extract_paper_meta.py
 ```
 
-Run the bulk collection and processing scripts from the project root:
+The original extractor downloads configured arXiv papers, extracts PDF text, and generates structured metadata.
 
-```bash
-python src/collect_startups.py
-python src/clean_startups.py
-python src/clean_products.py
-python src/bulk_arxiv.py
-python src/merge_research.py
-python src/collect_jobs.py
-python src/collect_news.py
-python src/entity_resolution.py
-python src/llm_fallback.py
-python src/async_crawler.py
-```
-
-Some scripts depend on input files generated by earlier scripts. Run them in the appropriate order and configure the required API keys before using LLM features.
+---
 
 ## 8. Dataset Outputs
 
-| Dataset | Output file |
-|---|---|
-| Startups | startups_final.csv |
-| Products | products_final.csv |
-| Research Papers | research_papers_final.csv |
-| Jobs | jobs_final.csv |
-| News | news_final.csv |
-| Entity Mapping | entity_mapping_log.csv |
+The project generates the following primary datasets:
 
-Additional JSON outputs and GitHub metrics are generated during processing.
+| Dataset | Output File | Demonstrated Records |
+|---|---|---:|
+| AI Startups | startups_final.csv | 1,000 |
+| AI Products | products_final.csv | 1,000 |
+| Research Papers | research_papers_final.csv | 1,000 |
+| AI Jobs | jobs_final.csv | Depends on collection run |
+| AI News | news_final.csv | Depends on collection run |
+| Entity Mapping | entity_mapping_log.csv | 1,000 |
+
+Additional files include JSON datasets, GitHub metrics, and crawler results.
+
+Record counts reflect the demonstrated collection runs and may change when scripts are executed again.
+
+---
 
 ## 9. Google Sheets Dashboard
 
-The collected datasets are organized into six spreadsheet tabs:
+The collected datasets are organized into six Google Sheets tabs:
 
 1. Startups
 2. Products
@@ -160,90 +361,202 @@ The collected datasets are organized into six spreadsheet tabs:
 5. News
 6. Entity Mapping Log
 
-**Public dataset dashboard:**
+**Dashboard Link:**
 
 https://docs.google.com/spreadsheets/d/1V4uM7X6ucIilq2bl9j2a24dTfezLsxiH2mSK_BSmonM/edit?usp=sharing
 
-## 10. LLM Processing and Fallback
+The spreadsheet is intended for reviewer access with Viewer permissions.
 
-The LLM module demonstrates integration with:
+---
 
-- Google Gemini
-- Groq
-- DeepSeek
+## 10. LLM Fallback Architecture
 
-It includes provider fallback logic, retry handling for rate limits, and text chunking for oversized inputs.
+The project demonstrates a multi-provider LLM integration strategy.
 
-Gemini was successfully tested. Groq and DeepSeek execution depends on provider access, model availability, and account credits.
+Configured providers:
+
+1. Google Gemini
+2. Groq
+3. DeepSeek
+
+Implemented processing mechanisms include:
+
+- Provider selection and fallback sequence.
+- Retry handling for rate-limit errors.
+- Text chunking for oversized prompts.
+- Error handling for unavailable providers.
+
+Gemini processing was successfully tested.
+
+Groq and DeepSeek execution depends on available provider access, model availability, and account credits. Their complete fallback behavior has not been verified in the demonstrated run.
+
+---
 
 ## 11. Asynchronous Crawler
 
-The asynchronous crawler uses aiohttp and BeautifulSoup to fetch multiple webpages concurrently.
+The crawler uses asynchronous HTTP requests to fetch multiple webpages concurrently.
 
-The demonstrated run successfully fetched four webpages.
+### Main Components
 
-The crawler strategy follows responsible access practices:
+- aiohttp for asynchronous requests.
+- asyncio for concurrent execution.
+- BeautifulSoup for HTML parsing.
+- CSV output for collected metadata.
 
-- Respect website terms and robots.txt policies.
-- Prefer official APIs and RSS feeds.
-- Respect HTTP 403 and 429 responses.
-- Do not attempt to bypass anti-bot protections.
-- Record crawling failures for inspection.
+### Demonstrated Result
+
+```text
+Crawling completed!
+
+Pages successfully fetched: 4
+
+Output: async_crawler_results.csv
+```
+
+The crawler follows responsible collection practices:
+
+- Respects website access restrictions.
+- Uses public RSS feeds and accessible pages.
+- Handles HTTP errors and access restrictions.
+- Does not attempt to bypass Cloudflare, DataDome, or other anti-bot systems.
 
 See `crawler_strategy.md` for additional details.
 
+---
+
 ## 12. Architecture and Scalability
 
-The architecture document describes a proposed design for scaling the platform to 500,000+ records.
+The architecture document describes a proposed design for supporting 500,000+ records.
 
-The proposed architecture includes:
+### Proposed Architecture Components
 
-- Distributed asynchronous workers.
-- Task queues and centralized storage.
+- Distributed asynchronous crawling workers.
+- Centralized task queues.
+- Scheduled data collection.
 - Deduplication and entity resolution.
-- Freshness checks and scheduled crawling.
-- LLM request retries and chunking.
-- Monitoring and error logging.
+- Centralized storage.
+- Freshness monitoring.
+- LLM request management.
+- Retry and error-handling mechanisms.
 
-The 500,000-record capacity is an architectural target, not a fully implemented or load-tested capability.
+The architecture is designed to address:
 
-See `architecture.pdf` for the architecture documentation.
+- Large-scale data collection.
+- HTTP 413 payload-size errors.
+- HTTP 429 rate-limit errors.
+- Duplicate records across distributed workers.
+- Data freshness and consistency.
 
-## 13. Original Research Paper Metadata Extractor
+**Architecture Document:** `architecture.pdf`
 
-The original extractor retrieves metadata for five configured arXiv papers, downloads PDFs, extracts text using PyMuPDF, and generates structured JSON records.
+The 500,000+ record capacity is a proposed architectural target. The current implementation has not been load-tested at that scale.
 
-Its output includes:
+---
 
-- arXiv ID, title, authors, and publication date.
-- Abstract and PDF/page URLs.
-- GitHub repository information.
-- Research tasks, methods, models, and datasets.
-- Benchmark and performance claims.
+## 13. Original Research Paper OCR and Metadata Extraction
 
-Extraction uses transparent heuristic rules. Repository associations, model names, datasets, and benchmark claims should be reviewed against the original papers.
+The original component retrieves five configured arXiv papers and extracts metadata from their PDFs.
+
+### Extracted Information
+
+- arXiv identifiers.
+- Paper titles.
+- Authors.
+- Abstracts.
+- Publication dates.
+- PDF and abstract URLs.
+- GitHub repository references.
+- Research tasks and methods.
+- Models and datasets.
+- Benchmark claims.
+
+### Extraction Method
+
+The extractor uses the arXiv API, PyMuPDF, and heuristic extraction rules to create structured JSON records.
+
+Repository associations and scientific claims require manual verification against the original papers.
+
+---
 
 ## 14. Testing
 
-Run the unit tests:
+Run the automated unit tests:
 
 ```bash
 python -m pytest -v
 ```
 
-Automated tests check selected extraction and processing behavior. Passing tests does not guarantee scientific accuracy or production readiness.
+The repository also includes GitHub Actions workflows for automated testing and extraction checks.
 
-## 15. Implementation Limitations
+GitHub Actions:
 
-1. Some extracted metadata requires manual verification.
+https://github.com/Kushal43065/ai-data-intelligence-platform/actions
+
+Successful automated tests indicate that the configured checks passed. They do not guarantee complete scientific accuracy or production readiness.
+
+---
+
+## 15. Limitations and Future Improvements
+
+### Current Limitations
+
+1. Heuristic extraction may miss information in complex PDF layouts.
 2. GitHub repository existence does not prove association with a research paper.
-3. Regex-based PDF extraction may miss information in tables and unusual layouts.
-4. The asynchronous crawler demonstration fetched four pages; it is not a production-scale crawler.
-5. Multi-provider LLM fallback depends on provider access and credits.
-6. Distributed processing and 500,000-record scaling remain proposed architectural capabilities.
+3. Some entity matches require additional manual verification.
+4. The asynchronous crawler demonstration fetched four webpages.
+5. Groq and DeepSeek provider execution depends on available credits and access.
+6. Distributed processing for 500,000+ records remains a proposed architecture rather than a fully implemented system.
+7. Dataset quality and source coverage require continued validation.
 
-## 16. Author
+### Future Improvements
 
-FrontierAtlas AI/Data Engineering Intern Trial Task
+- Implement distributed crawling with task queues.
+- Add centralized database storage.
+- Improve entity resolution with alias and fuzzy matching.
+- Introduce token-aware LLM chunking.
+- Add comprehensive monitoring and structured logs.
+- Implement automated data-quality validation.
+- Perform large-scale load testing.
 
-**Project:** AI Data Intelligence Platform
+---
+
+## 16. References and Data Sources
+
+- arXiv API: https://info.arxiv.org/help/api/
+- GitHub REST API: https://docs.github.com/en/rest
+- Remote OK: https://remoteok.com/
+- Jobicy: https://jobicy.com/
+- Arbeitnow: https://www.arbeitnow.com/
+- Working Nomads: https://www.workingnomads.com/
+- We Work Remotely: https://weworkremotely.com/
+- TechCrunch: https://techcrunch.com/
+- The Verge: https://www.theverge.com/
+- VentureBeat: https://venturebeat.com/
+- MIT Technology Review: https://www.technologyreview.com/
+- Google DeepMind: https://deepmind.google/
+
+---
+
+## 17. Project Repository
+
+**GitHub Repository:**
+
+https://github.com/Kushal43065/ai-data-intelligence-platform
+
+**Google Sheets Dashboard:**
+
+https://docs.google.com/spreadsheets/d/1V4uM7X6ucIilq2bl9j2a24dTfezLsxiH2mSK_BSmonM/edit?usp=sharing
+
+---
+
+## 18. Project Information
+
+**Project Name:** AI Data Intelligence Platform
+
+**Assignment:** FrontierAtlas AI/Data Engineering Intern Trial Task
+
+**Primary Language:** Python
+
+**Repository:** Public GitHub Repository
+
+**Deliverables:** Source code, structured datasets, architecture documentation, asynchronous crawler, LLM processing module, entity resolution module, and Google Sheets dashboard.
